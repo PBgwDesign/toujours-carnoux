@@ -1,0 +1,53 @@
+.card-light {
+    height: 100%;
+
+    .card-body {
+        padding: 1.5rem;
+        background-color: $light;
+        position: relative;
+        float: left;
+        height: 100%;
+        max-width: 100%;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+            float: left;
+        }
+        .text-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-top: 1rem;
+            .title {
+                font-size: $h4-font-size;
+                color: $secondary;
+            }
+        }
+    }
+
+}
+
+@include media-breakpoint-down(md) {
+    .card-light {
+        .card-body {
+            padding: 1rem;
+            .title {
+                font-size: $h5-font-size !important;
+                hyphens: auto;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .card-light {
+        .card-body {
+            .title {
+                font-size: $h6-font-size !important;
+            }
+        }
+    }
+}

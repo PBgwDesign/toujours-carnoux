@@ -1,0 +1,10 @@
+body {
+  --bs-body-font-size: #{$body-font-size};
+  --bs-body-line-height: #{$body-line-height};
+}
+
+#page_wrapper {
+  & > section {
+    scroll-margin-top: calc( var(--header-height) );
+  }
+}

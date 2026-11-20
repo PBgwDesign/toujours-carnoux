@@ -1,0 +1,29 @@
+# Ignore everything in the root, except: "wp-content" directory
+# unless explicitly whitelisted, e.g : !wp-includes/
+/*
+!wp-content/
+
+# Ignore everything in the "wp-content" directory, except: "themes" directory
+# unless explicitly whitelisted, e.g : !wp-content/plugins/
+wp-content/*
+!wp-content/themes/
+
+# Ignore everything in the "themes" directory, except: "toujours_carnoux" directory
+# unless explicitly whitelisted, e.g : !wp-content/plugins/
+wp-content/themes/*
+!wp-content/themes/toujours_carnoux/
+
+# Whitelist everything in the "toujours_carnoux" directory, except: "node_modules" directory
+wp-content/themes/toujours_carnoux/node_modules/*
+
+
+# Whitelist all of these files
+!.gitignore
+!README.md
+!CHANGELOG.md
+!package.json
+!gulpfile.js
+!gulpconfig.json
+
+# Ignore all of thes files
+.DS_Store

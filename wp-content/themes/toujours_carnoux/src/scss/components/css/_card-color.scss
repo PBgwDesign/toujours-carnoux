@@ -1,0 +1,124 @@
+.card-color {
+
+    .card-body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 2.5rem;
+        height: 100%;
+
+        &.bg-secondary {
+            .title {
+                span {
+                    color: lighten($secondary, 30%) !important;
+                }
+                &::before {
+                    background-color: darken($secondary, 10%);
+                }
+            }
+        }
+        &.bg-primary {
+            .title {
+                span {
+                    color: lighten($primary, 30%) !important;
+                    filter: saturate(.6);
+                }
+                &::before {
+                    background-color: darken($primary, 10%);
+                }
+            }
+        }
+        &.bg-tertiary {
+            .title {
+                span {
+                    color: lighten($tertiary, 40%) !important;
+                    filter: saturate(.6);
+                }
+                &::before {
+                    background-color: darken($tertiary, 10%);
+                }
+            }
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1rem;
+            .title {
+                span {
+                    font-size: $h2-font-size;
+                }
+                &::before {
+                    content: '';
+                    display: block;
+                    margin-bottom: 1rem;
+                    width: 40px;
+                    height: 12px;
+                }
+            }
+            .text {
+                color: $white;
+                position: absolute;
+                bottom: 4em;
+                right: 2.5rem;
+                width: calc(70% - 2.5rem);
+            }
+        }
+        .link {
+            @extend .stretched-link;
+            margin-top: -1rem;
+        }
+    }
+
+    &:not(.bg-white) {
+        .img-container {
+            padding: .5rem;
+        }
+    }
+
+}
+
+@include media-breakpoint-down(xxl) {
+    .card-color {
+        .card-body {
+            .text-container {
+                .title {
+                    span {
+                        font-size: $h3-font-size;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .card-color {
+        .card-body {
+            height: auto;
+            padding: 2rem;
+            .text-container {
+                .text {
+                    position: relative;
+                    bottom: initial;
+                    right: initial;
+                    padding-left: 25%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .card-color {
+        .card-body {
+            padding: 1.5rem;
+        }
+    }
+}

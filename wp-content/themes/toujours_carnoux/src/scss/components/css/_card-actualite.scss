@@ -1,0 +1,80 @@
+.card-actualite {
+
+    .card-body {
+        position: relative;
+        background-color: $light;
+        padding: 1.5rem;
+        height: 240px;
+        width: 100%;
+        float: left;
+        transition: $transition-easeinout;
+        &::after {
+            content: "";
+            display: block;
+            padding-top: 100%;
+            float: left;
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            height: 100%;
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 13px;
+                height: 11px;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.659' height='11.077' viewBox='0 0 12.659 11.077'%3E%3Cg transform='translate(-86 -4777.962)'%3E%3Cg transform='translate(74 4764.463)'%3E%3Cg transform='translate(12 13.498)'%3E%3Cpath d='M12,19.037a.791.791,0,0,1,.791-.791h9.165l-3.4-3.4a.792.792,0,1,1,1.12-1.12l4.746,4.746a.791.791,0,0,1,0,1.12L19.68,24.343a.792.792,0,0,1-1.12-1.12l3.4-3.4H12.791A.791.791,0,0,1,12,19.037Z' transform='translate(-12 -13.498)' fill='#{encodecolor($tertiary)}' fill-rule='evenodd'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center / 100% auto;
+                transition: $transition-easeinout;
+            }
+            .title {
+                font-size: $h14-font-size;
+                transition: $transition-easeinout;
+            }
+        }
+        .link {
+            height: 0;
+            margin-top: -1rem;
+            transition: $transition-easeinout;
+        }
+        .meta-container {
+            .source {
+                transition: $transition-easeinout;
+            }
+            .date {
+                font-weight: $font-weight-bold;
+                color: $tertiary;
+                transition: $transition-easeinout;
+            }
+        }
+    }
+
+    &.is-active {
+        .card-body {
+            background-color: $tertiary;
+            .text-container {
+                &::before {
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12.659' height='11.077' viewBox='0 0 12.659 11.077'%3E%3Cg transform='translate(-86 -4777.962)'%3E%3Cg transform='translate(74 4764.463)'%3E%3Cg transform='translate(12 13.498)'%3E%3Cpath d='M12,19.037a.791.791,0,0,1,.791-.791h9.165l-3.4-3.4a.792.792,0,1,1,1.12-1.12l4.746,4.746a.791.791,0,0,1,0,1.12L19.68,24.343a.792.792,0,0,1-1.12-1.12l3.4-3.4H12.791A.791.791,0,0,1,12,19.037Z' transform='translate(-12 -13.498)' fill='#{encodecolor(lighten($tertiary, 40%))}' fill-rule='evenodd'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A") no-repeat center center / 100% auto;
+                    filter: saturate(.6);
+                }
+                .title {
+                    color: $white;
+                }
+            }
+            .meta-container {
+                .source {
+                    color: $white;
+                }
+                .date {
+                    font-weight: $font-weight-bold;
+                    color: lighten($tertiary, 40%);
+                    filter: saturate(.6);
+                }
+            }
+        }
+    }
+
+}

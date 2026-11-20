@@ -1,0 +1,19 @@
+.acfe-flexible-placeholder {
+    --bs-gutter-x: 1.5rem;
+    background-color: $light;
+
+    & > [class*="component-"] {
+        padding: calc(var(--bs-gutter-x) * .5) 0 !important;
+
+        &[class*="my-"], &[class*="mt-"], &[class*="mb-"] {
+            margin: initial !important;
+        }
+
+        .title-component, .title-component > * {
+            font-size: $h2-font-size;
+            line-height: 1.2em;
+        }
+
+    }
+
+}

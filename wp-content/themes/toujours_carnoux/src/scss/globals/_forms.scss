@@ -1,0 +1,456 @@
+form, .form, .wpcf7-form {
+    width: 100%;
+
+    // Regular inputs
+    input[type="text"], input[type="email"], input[type="password"], input[type="tel"], textarea {
+        transition: $transition-easeinout;
+        color: $black;
+        background-color: $light !important;
+        font-size: $h6-font-size;
+        line-height: 26px !important;
+        z-index: 0;
+        padding: 13px 12px !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        border: 1px solid transparent !important;
+        margin-bottom: 2.5rem;
+        width: 100%;
+        min-height: initial !important;
+        &:focus, &:focus-visible {
+            box-shadow: none !important;
+            border: 1px solid rgba($black, .3) !important;
+            background-color: $white;
+            outline: none !important;
+        }
+        &:focus, &:not(:placeholder-shown) {
+            padding-bottom: 2px;
+            color: $black;
+        }
+        &.wpcf7-not-valid {
+            border-color: $danger;
+        }
+    }
+
+    // Regular bootstrap field class
+    .form-control {
+        color: $dark !important;
+    }
+    .form-label {
+        font-size: $h6-font-size;
+    }
+
+    // Regular label
+    label, .form-label {
+        font-size: $h6-font-size;
+    }
+
+    // Regular input without floating label
+    div:not(.form-floating) {
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            &:-moz-placeholder {
+                color: $white_snow !important;
+                font-size: $h6-font-size;
+                opacity: 1;
+            }
+            &::-moz-placeholder {
+                color: $white_snow !important;
+                font-size: $h6-font-size;
+                opacity: 1;
+            }
+            &::-webkit-input-placeholder {
+                color: $white_snow !important;
+                font-size: $h6-font-size;
+                opacity: 1;
+            }
+            &:-ms-input-placeholder {
+                color: $white_snow !important;
+                font-size: $h6-font-size;
+                opacity: 1;
+            }
+            &::placeholder {
+                color: $white_snow !important;
+                font-size: $h6-font-size;
+                opacity: 1;
+            }
+            &:focus, &:focus-visible {
+                box-shadow: none !important;
+                border: 1px solid rgba($black, .3) !important;
+                background-color: $white;
+                outline: none !important;
+            }
+            &:focus, &:focus-visible {
+                &:-moz-placeholder {
+                    opacity: .25;
+                }
+                &::-moz-placeholder {
+                    opacity: .25;
+                }
+                &::-webkit-input-placeholder {
+                    opacity: .25;
+                }
+                &:-ms-input-placeholder {
+                    opacity: .25;
+                }
+                &::placeholder {
+                    opacity: .25;
+                }
+            }
+        }
+    }  
+
+    // Bootstrap floating labels & WPCF7 custom floating label 
+    .form-floating {
+        margin-bottom: 2.25em;
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            height: auto;
+        }
+        label, .form-label {
+            display: inline-block;
+            position: absolute;
+            height: auto;
+            width: auto;
+            transform: translateY(16px);
+            z-index: 1;
+            pointer-events: none;
+            color: $black !important;
+            font-family: $font-family-sans-serif;
+            font-size: $h15-font-size;
+            font-weight: $font-weight-semibold;
+            opacity: 1;
+            padding: 0 .5em;
+            margin-left: 20px;
+            transition: $transition-easeinout;
+            &::after {
+                content: none !important;
+            }
+        }
+        .form-control {
+            height: auto;
+            &:not(:placeholder-shown) ~ label, &:not(:placeholder-shown) ~ .form-label, &:focus ~ label, &:focus ~ .form-label {
+                opacity: 1;
+                transform: translateY(-26px);
+            }
+        }
+        &.active {
+            label {
+                opacity: 1;
+                transform: translateY(-26px);
+            }
+        }
+    }
+
+    // Checkbox and radio buttons inputs
+    .form-check:not(.form-check-inline):not(.form-switch) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 0;
+        input, .form-check-input {
+            border: 1px solid $white_snow;
+            margin: -1px .5em 0 0;
+            width: 1.25rem;
+            min-width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+            transition: $transition-cubic;
+            background-size: 0;
+            box-shadow: none;
+            &:checked {
+                background-color: $white;
+                background-size: 100% !important;
+                &[type="checkbox"] {
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{encodecolor($black)}' class='bi bi-check' viewBox='0 0 16 16'%3E%3Cpath d='M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z'/%3E%3C/svg%3E") no-repeat center center / 10px auto !important;
+                }
+                &[type="radio"] {
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='#{encodecolor($black)}' class='bi bi-circle-fill' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8'/%3E%3C/svg%3E") no-repeat center center / 10px auto !important;
+                }
+            }
+        }
+    }
+    .form-check-inline {
+        display: inline-flex;
+        margin-right: 1rem;
+        align-items: center;
+        input, .form-check-input {
+            border: 2px solid $white;
+            outline: 1px solid lighten($light, 20%);
+            margin-top: -1px;
+            background-color: transparent;
+            width: 1.25rem;
+            height: 1.25rem;
+            cursor: pointer;
+            background-size: 0;
+            transition: $transition-cubic;
+            &:checked {
+                background-color: $danger;
+                background-size: 100% !important;
+            }
+        }
+        label, .form-check-label {
+            margin-left: .5rem;
+        }
+    }
+    .form-switch {
+        display: flex;
+        align-items: center;
+        color: currentColor;
+        .form-check-input {
+            color: currentColor;
+            border: 2px solid $white;
+            outline: 1px solid lighten($light, 20%);
+            margin: -1px .5rem 0 -2.5rem;
+            background-color: $white;
+            width: calc(1.25rem * 2);
+            height: 1.25rem;
+            cursor: pointer;
+            transition: $transition-cubic;
+            &:checked {
+                background-color: $danger !important;
+            }
+        }
+    }
+
+    // Select field
+    select, .form-select, .wpcf7-select {
+        color: $white_snow;
+        background: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='#{encodecolor($black)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A") no-repeat calc(100% - 1.5rem) center / 10px auto, $white !important;
+        font-size: $h6-font-size;
+        line-height: 26px !important;
+        padding: 8px 12px !important;
+        border-radius: $border-radius-sm !important;
+        border: 1px solid transparent !important;
+        width: 100%;
+        appearance: none;
+        margin-bottom: 1.5rem;
+        box-shadow: none;
+        &:focus {
+            box-shadow: none;
+            border: 1px solid rgba($black, .3);
+        }
+        &.bg-primary, &.bg-secondary {
+            color: $white !important;
+        }
+    }
+
+    // File input
+    input[type="file"] {
+        color: currentColor;
+        background-color: transparent;
+        border: 1px solid $dark;
+        border-radius: $border-radius-md;
+        &:focus {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        &.form-control-sm {
+            min-height: calc(1.5em + .5rem + 0px);
+        }
+        &.form-control-lg {
+            min-height: calc(1.5em + 1rem + 0px);
+        }
+    }
+
+    // Submit input
+    input[type="submit"] {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+
+    .wpcf7-response-output {
+        background-color: $white;
+        border-color: $white !important;
+        border-radius: 0 !important;
+        padding: .5rem 1rem !important;
+        margin: 1.5rem 0 .5rem !important;
+    }
+
+    .wpcf7-spinner {
+        display: none;
+        background: none;
+        margin: inherit;
+        &::before {
+            content: none;
+        }
+    }
+
+    &.submitting {
+        .wpcf7-spinner {
+            display: inline-block;
+        }
+    }
+
+    &.invalid, &.spam, &.unaccepted, &.payment-required {
+        .wpcf7-response-output {
+            background-color: $white;
+            border-color: $white !important;
+        }
+    }
+    &.sent {
+        .wpcf7-response-output {
+            background-color: $white;
+            border-color: $white !important;
+        }
+    }
+    &.failed, &.aborted {
+        .wpcf7-response-output {
+            background-color: $white;
+            border-color: $white !important;
+        }
+    }
+}
+
+.form-check-input {
+    border: 1px solid $primary;;
+    margin: -1px .5em 0 0;
+    background-color: $white;
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    transition: $transition-cubic;
+    background-size: 0;
+    &:not([type="radio"]) {
+        border-radius: $border-radius-sm;
+    }
+    &:checked {
+        background-size: 100% !important;
+    }
+}
+button[type="submit"] {
+    position: relative;
+}
+
+.wpcf7-form {
+
+    label {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: .5rem;
+        font-weight: $font-weight-semibold;
+    }
+
+    .wpcf7-form-control:not(.wpcf7-checkbox):not(.wpcf7-radio) {
+        margin: 0 !important;
+    }
+    .wpcf7-list-item {
+        label {
+            flex-direction: row;
+            .wpcf7-list-item-label {
+                line-height: 1;
+                top: 3px;
+                position: relative;
+            }
+        }
+        &.first {
+            margin: 0;
+            label {
+                padding-left: 0 !important;
+            }
+        }
+    }
+
+    .wpcf7-checkbox, .wpcf7-radio {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 2.25em;
+        label {
+            input {
+                position: relative;
+                top: 2px;
+                @extend .form-check-input;
+            }
+        }
+    }
+
+    .wpcf7-acceptance {
+
+        [type="checkbox"] {
+            @extend .form-check-input;
+            margin-top: 2px;
+            &:focus, &:active {
+                box-shadow: none;
+                border-color: $primary;
+            }
+            &:checked {
+                --bs-form-check-bg-image: url("data:image/svg+xml,%3Csvg width='11' height='8' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.5 1L4 6.5L1.5 4' stroke='#{encodecolor($black)}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                background-color: $white;
+                border-color: $primary;
+                background-size: 10px auto !important;
+            }
+        }
+        .wpcf7-list-item {
+            margin: 0;
+            .wpcf7-list-item-label {
+                text-transform: initial;
+                font-size: $small-font-size;
+                margin-top: 1px;
+            }
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        color: $danger;
+        font-size: $small-font-size;
+        margin: .25rem 0 0 0;
+        position: relative;
+    }
+
+    .wpcf7-response-output {
+        font-size: $small-font-size;
+        background-color: $white;
+        border-color: $white !important;
+        border-radius: 0 !important;
+        padding: .25rem !important;
+        margin: 1.5rem 0 .5rem !important;
+        display: flex;
+    }
+
+    .wpcf7-spinner {
+        display: none;
+        background: none;
+        margin: inherit;
+        &::before {
+            content: none;
+        }
+    }
+
+    &.submitting {
+        .wpcf7-spinner {
+            display: inline-block;
+            position: absolute;
+            right: 5px;
+            top: 10px;
+            opacity: 1;
+        }
+        [type="submit"] {
+            padding-right: 2rem;
+        }
+    }
+
+    &.invalid {
+        input[aria-required="true"], textarea[aria-required="true"] {
+            border-color: $danger;
+        }
+    }
+
+    &.invalid, &.spam, &.unaccepted, &.payment-required {
+        .wpcf7-response-output {
+            background-color: $warning;
+            border-color: $warning !important;
+        }
+    }
+    &.sent {
+        .wpcf7-response-output {
+            background-color: $success;
+            border-color: $success !important;
+        }
+    }
+    &.failed, &.aborted {
+        .wpcf7-response-output {
+            color: $white;
+            background-color: $danger;
+            border-color: $danger !important;
+        }
+    }
+}

@@ -1,0 +1,211 @@
+#header_wrapper {
+    transition: $transition-easeinout;
+
+    &.show {
+        .navbar-brand {
+            img {
+                filter: none !important;
+            }
+            .navbar-baseline {
+                color: $black !important;
+            }
+        }
+        .navbar-toggler {
+            .icon-bar {
+                background-color: $black !important;
+            }
+        }
+    }
+
+    &.scrolled-down {
+        background: rgba($white, .65);
+        backdrop-filter: blur(10px);
+
+        .navbar-toggler {
+            .icon-bar {
+                background-color: $black !important;
+            }
+        }
+
+        .navbar {
+
+            &.navbar-expand {
+                padding: var(--bs-navbar-padding-y) 0 !important;
+
+                @each $breakpoint in map-keys($grid-breakpoints) {
+                    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+                    $infix: breakpoint-infix($next, $grid-breakpoints);
+                    &#{$infix} {
+                        @include media-breakpoint-up($next) {
+                            padding-top: var(--bs-navbar-padding-y) !important;
+                            .navbar-brand {
+                                --navbar-brand-height: 34px;
+                                gap: 0 .5rem;
+                            }
+                            .navbar-nav > .nav-item > .nav-link {
+                                --bs-nav-link-padding-y: 12px !important;
+                            }
+                        }
+                        @include media-breakpoint-down($next) {
+                            .navbar-collapse {
+                                background: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.scrolled-up {
+        background: rgba($white, .9);
+        backdrop-filter: blur(10px);
+
+        .navbar-toggler {
+            .icon-bar {
+                background-color: $black !important;
+            }
+        }
+
+        .navbar {
+            --bs-navbar-color: #{$black};
+
+            &.navbar-expand {
+
+                @each $breakpoint in map-keys($grid-breakpoints) {
+                    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+                    $infix: breakpoint-infix($next, $grid-breakpoints);
+                    &#{$infix} {
+                        @include media-breakpoint-up($next) {
+                            padding-top: var(--bs-navbar-padding-y) !important;
+                            .navbar-brand {
+                                --navbar-brand-height: 34px;
+                                gap: 0 .5rem;
+                            }
+                            .navbar-nav > .nav-item > .nav-link {
+                                --bs-nav-link-padding-y: 12px !important;
+                            }
+                        }
+                        @include media-breakpoint-down($next) {
+                            .navbar-collapse {
+                                background: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.header-accueil, &.header-page {
+
+        .navbar-brand {
+            img {
+                filter: brightness(100);
+            }
+        }
+
+        .navbar-toggler {
+            .icon-bar {
+                background-color: $white;
+            }
+        }
+
+        &:not(.scrolled-down):not(.scrolled-up) {
+            .navbar-baseline {
+                color: $white;
+                span {
+                    &::before, &::after {
+                        background-color: $white;
+                    }
+                }
+            }
+            & > .navbar {
+                --bs-navbar-color: #{$white};
+                .navbar-nav {
+                    --bs-nav-link-hover-color: var(--bs-navbar-color);
+                }
+            }
+        }
+
+        &.scrolled-down, &.scrolled-up {
+            .navbar-brand {
+                img {
+                    filter: none;
+                }
+            }
+        }
+
+    }
+
+    .navbar-brand {
+        line-height: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 0 1rem;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 44px;
+            height: 18px;
+            background: var(--logo-image) no-repeat center center / auto 100%;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: $transition-easeinout;
+            transition-duration: .35s;
+        }
+
+        img {
+            height: var(--navbar-brand-height);
+            transition: $transition-easeinout;
+        }
+
+        .navbar-baseline {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 0 1rem;
+            font-size: 9px;
+            line-height: 1;
+            text-transform: uppercase;
+            transition: $transition-easeinout;
+            animation: .5s logo-baseline-reveal;
+            & > span {
+                position: relative;
+                &:first-child {
+                    font-weight: $font-weight-bold;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        top: 1px;
+                        left: calc(100% + 3.5px);
+                        width: 10px;
+                        height: 6.5px;
+                        background-color: $black;
+                        transition: $transition-easeinout;
+                        animation: 1s logo-baseline-firstbar-reveal;
+                    }
+                }
+                &:last-child {
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 1.5px;
+                        right: calc(100% + 2.5px);
+                        width: 18.5px;
+                        height: 6.5px;
+                        background-color: $black;
+                        transition: $transition-easeinout;
+                        animation: .75s logo-baseline-lastbar-reveal;
+                    }
+                }
+            }
+        }
+        
+    }
+
+}

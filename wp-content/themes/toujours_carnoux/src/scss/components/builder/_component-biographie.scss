@@ -1,0 +1,104 @@
+.component-biographie {
+    position: relative;
+    background-color: $light;
+
+    .component-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        .component-title {
+
+        }
+    }
+
+    .component-img {
+        .img-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+    }
+
+    .component-footer {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8rem;
+        z-index: 1;
+    }
+
+    .card-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+}
+
+@include media-breakpoint-only(lg) {
+    .component-biographie {
+        .component-footer {
+            gap: initial;
+            justify-content: space-between;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .component-biographie {
+        .component-footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+        .card-container {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .component-biographie {
+        .component-img {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            z-index: 0;
+            right: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .component-biographie {
+
+        .component-img {
+            position: initial;
+            .img-container {
+                position: relative;
+                height: 400px;
+                overflow: initial;
+                margin-top: calc($spacer-60 * -1);
+                img {
+                    width: 100vw;
+                    position: absolute;
+                    top: 0;
+                    height: 100%;
+                    left: 50%;
+                    right: 50%;
+                    margin-left: -50vw;
+                    margin-right: -50vw;
+                }
+            }
+        }
+
+    }
+}

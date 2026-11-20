@@ -1,0 +1,182 @@
+#pass_banner {
+    .component-cartesaveccouleur {
+        & > .container {
+            & > .row {
+                flex-direction: column;
+                & > [class*="col-"] {
+                    width: 100% !important;
+                    padding: 0 calc(var(--bs-gutter-x)/ 2) !important;
+                    max-width: 1100px;
+                    margin: 0 auto;
+                    .component-body {
+                        align-items: center;
+                    }
+                    .component-cards {
+                        padding: 0;
+                        justify-content: center;
+                        &:not(.card-columns) {
+                            .col-lg-4 {
+                                max-width: 600px;
+                                width: 100%;
+                                margin: 0 auto;
+                            }
+                        }
+                        &.card-columns {
+                            & > [class*="col-"] {
+                                flex: 1 0 0%;
+                            }
+                        }
+                        & > [class*="col-"] {
+                            transform: none;
+                        }
+                        .card-color {
+                            transform: none;
+                            flex: initial;
+                            height: 100%;
+                            .card-body {
+                                align-items: center;
+                            }
+                            .text-container {
+                                padding-right: 3rem;
+                            }
+                        }
+                    }
+                    & * {
+                        text-align: center;
+                    }
+                    .pass-agglo {
+                        position: relative;
+                        font-weight: $font-weight-bold;
+                        &::after {
+                            content: '';
+                            position: relative;
+                            display: inline-block;
+                            background: url('../img/festivalf5c_partenaire_8.png') no-repeat center center / contain;
+                            width: 100px;
+                            height: 50px;
+                            top: -5px;
+                            margin: -25px 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    #pass_banner {
+        .pass-agglo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &::after {
+                display: block !important;
+                margin: 0 !important;
+                top: initial !important;
+            }
+        }
+    }
+}
+
+#programme_iframe {
+    .component-texteavecimage {
+        & > .container {
+            & > .row {
+                & > .col-lg-8 {
+                    width: 100% !important;
+                }
+            }
+        }
+        .component-body {
+            & * {
+                width: 100%;
+            }
+            iframe {
+                margin: 0 !important;
+                min-width: 100%;
+                height: 650px;
+            }
+        }
+    }
+}
+
+#pass_f5c {
+    .component-texteavecimage {
+        .component-image {
+            .img-container {
+                img {
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+}
+
+#trophy_f5c {
+    .component-texteavecimage {
+        .component-image {
+            .img-container {
+                position: relative;
+                &::after {
+                    content: 'Création de Panglosslabs.org';
+                    background-color: $primary;
+                    padding: .25rem .5rem;
+                    transform: translateX(-50%);
+                    left: 50%;
+                    position: absolute;
+                    top: 100%;
+                    font-size: 12px;
+                    font-weight: bold;
+                }
+                img {
+                    object-fit: contain;
+                    max-height: 400px;
+                }
+            }
+        }
+    }
+}
+
+#jury_cards {
+    .component-cartesavecicone.shape-horizontal {
+        .cards-container {
+            .card-icone {
+                .card-body {
+                    align-items: center;
+                }
+                .img-container {
+                    width: 140px;
+                    min-width: 140px;
+                    height: 140px;
+                }
+            }
+        }
+    }
+}
+
+#village_intro {
+    .component-texteavecimage {
+        margin-bottom: 3rem !important;
+    }
+}
+
+#village_events {
+    .component-cartesaveccouleur {
+        margin-top: 3rem !important;
+        padding-top: 0 !important;
+        & > .container {
+            & > .row {
+                & > [class*="col-"] {
+                    width: 100%;
+                }
+            }
+        }
+        .component-cards {
+            padding-bottom: 0 !important;
+            & > [class*="col-"] {
+                transform: none;
+            }
+        }
+    }
+}

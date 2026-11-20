@@ -1,0 +1,15 @@
+.default-thumbnail {
+    background-color: $light;
+    width: 100%;
+    aspect-ratio: 308/208;
+    border-radius: $border-radius-lg;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('../img/the_editorialist_logo.svg') no-repeat center center / calc(100% - 4rem) auto;
+        opacity: .1;
+    }
+}

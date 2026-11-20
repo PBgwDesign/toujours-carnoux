@@ -1,0 +1,29 @@
+// ===========================================================================
+// Output the best color contrast for a given color variable
+// ===========================================================================
+
+@function get-color-yiq($background) {
+    $r: red($background);
+    $g: green($background);
+    $b: blue($background);
+    $yiq: calc( ( ($r*299) + ($g*587) + ($b*114) ) /1000 );
+    @if ($yiq >= 128) {
+        @return $black;
+    }
+    @else {
+        @return $white;
+    }
+}
+
+// ===========================================================================
+// Convert a given hex format color variable to a urlencoded hex color
+// ===========================================================================
+
+@function encodecolor($string) {
+	@if type-of($string) == 'color' {
+        $hex: str-slice(ie-hex-str($string), 4);
+        $string:unquote("#{$hex}");
+    }
+    $string: '%23' + $string;
+	@return $string;
+}

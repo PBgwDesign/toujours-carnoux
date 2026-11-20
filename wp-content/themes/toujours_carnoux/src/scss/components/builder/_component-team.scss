@@ -1,0 +1,114 @@
+.component-team {
+
+    .component-body {
+        --vw-margin-left: calc( (100vw - var(--container-width)) / 2 + (var(--bs-gutter-x) / 2));
+        position: absolute;
+        top: 0;
+        height: 100%;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        background: $gradient;
+        .component-title {
+            color: $white;
+            margin: 0;
+        }
+        .text {
+            color: $white;
+        }
+        .splide__arrow {
+            .bi::before {
+                color: $white;
+            }
+        }
+    }
+
+    .splide__track {
+        max-width: none;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+
+}
+
+@include media-breakpoint-up(xl) {
+    .component-team {
+        .component-body {
+            left: calc(((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x)) - (var(--bs-gutter-x) * 4)) / 5 * 2 + (var(--vw-margin-left) + var(--bs-gutter-x) * 2));
+            width: calc(((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x)) - (var(--bs-gutter-x) * 4)) / 5 * 2 + var(--bs-gutter-x));
+        }
+    }
+}
+
+@include media-breakpoint-down(xxl) {
+    .component-team {
+        .component-body {
+            .component-title {
+                font-size: $h3-font-size;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-between(lg,xl) {
+    .component-team {
+        .component-body {
+            left: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 3)/ 4 * 2 + var(--vw-margin-left) + var(--bs-gutter-x) * 2);
+            width: calc(((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x)) - (var(--bs-gutter-x) * 3)) / 4 * 2 + var(--bs-gutter-x));
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .component-team {
+        .component-body {
+            left: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 2)/ 3 * 2 + var(--vw-margin-left) + var(--bs-gutter-x) * 2);
+            width: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 2)/ 3 * 1);
+            .component-title {
+                font-size: $h4-font-size;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-only(md) {
+    .component-team {
+        .component-body {
+            left: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 2)/ 3 * 2 + var(--vw-margin-left) + var(--bs-gutter-x) * 2);
+            width: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 2)/ 3 * 1);
+            .component-title {
+                font-size: $h4-font-size;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-only(sm) {
+    .component-team {
+        .component-body {
+            left: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 1)/ 2 * 1 + var(--vw-margin-left) + var(--bs-gutter-x) * 1);
+            width: calc((100vw - (100vw - (var(--container-width))) - var(--bs-gutter-x) - var(--bs-gutter-x) * 1)/ 2 * 1);
+            .component-title {
+                font-size: $h4-font-size;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .component-team {
+        .splide__track {
+            margin-top: calc(var(--bs-gutter-x) / 2);
+        }
+        .component-body {
+            position: relative;
+            left: initial;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+        }
+    }
+}

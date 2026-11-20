@@ -1,0 +1,31 @@
+.table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid $white_snow;
+    thead {
+        & > tr {
+            & > th {
+                background-color: $secondary;
+                border-right-color: $white !important;
+                border-bottom: 1px solid $white_snow;
+            }
+        }
+    }
+    tbody {
+        & > tr {
+            &:last-child td {
+                border-bottom: none;
+            }
+            td {
+                min-width: 130px;
+            }
+        }
+    }
+    th:not(:last-child), td:not(:last-child) {
+        border-right: 1px solid $white_snow;
+    }
+    th, td {
+        padding: .75rem 1rem;
+    }
+}

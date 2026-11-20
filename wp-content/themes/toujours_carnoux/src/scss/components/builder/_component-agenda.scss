@@ -1,0 +1,52 @@
+.component-agenda {
+    .component-body {
+        background-color: $light;
+        padding: 2.5rem;
+        .card-container {
+            display: grid;
+            grid-template-rows: auto;
+            gap: 1.5rem;
+            margin: 0;
+        }
+        .component-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .component-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .component-agenda {
+        .component-body {
+            .card-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+}
+
+@include media-breakpoint-between(md, xl) {
+    .component-agenda {
+        .component-body {
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .component-agenda {
+        .component-body {
+            .card-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

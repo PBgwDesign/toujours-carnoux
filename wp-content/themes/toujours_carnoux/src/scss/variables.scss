@@ -1,0 +1,342 @@
+/* ------------------------------------------- Bootstrap's & other depedencies ------------------------------------------- */
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/variables";
+$bootstrap-icons-font-dir: "../fonts";
+
+
+/* ------------------------------------------- Color system ------------------------------------------- */
+
+// Figma or Adobe XD color-variables
+$pantone_green:         #00B13C;
+$liberty_blue :         #4B5EAE;
+$dark_cornflower_blue:  #0E1E86;
+$white:                 #FFFFFF;
+$white_snow:            #FCFAF6;
+$gray_philippine:       #8F8F8E;
+$gray_light:            #F2F2F2;
+$black:                 #000000;
+
+// To complete color palette
+$green_sea:             #00946D;
+$blue_cobalt:           #0746B4;
+$blue_cerulean:         #00749d;
+$purple_lavender:       #9186c0;
+$pink_canation:         #f8a8c8;
+$orange_tomato:         #ff644c;
+
+// Override Bootstrap's theme-color-variables
+$blue:    $liberty_blue; //#0d6efd;
+$indigo:  $blue_cobalt; //#6610f2;
+$purple:  $purple_lavender; //#6f42c1;
+$pink:    $pink_canation; //#d63384;
+$red:     #dc3545; //#dc3545;
+$orange:  $orange_tomato; //#fd7e14;
+$yellow:  $pantone_green; //#ffc107;
+$green:   $green_sea; //#198754;
+$teal:    $blue_cerulean; //#20c997;
+$cyan:    $dark_cornflower_blue; //#0dcaf0;
+
+$custom-colors:map-merge($colors, (
+
+        // Bootstrap's variables
+        "blue":            $liberty_blue,
+        "purple":          $purple_lavender,
+        "red":             $red,
+        "orange":          $orange_tomato,
+        "yellow":          $pantone_green,
+        "green":           $green_sea,
+        "cyan":            $dark_cornflower_blue,
+
+));
+$colors: map-merge($colors, $custom-colors);
+
+$primary:       $pantone_green;
+$secondary:     $liberty_blue;
+$tertiary:      $dark_cornflower_blue;
+$success:       $green_sea;
+$info:          $liberty_blue;
+$warning:       $pantone_green;
+$danger:        $red;
+$light:         $gray_light;
+$dark:          $gray_philippine;
+
+// Override Bootstrap's theme-colors-map
+$theme-colors: (
+      "primary":        $primary,
+      "secondary":      $secondary,
+      "tertiary":       $tertiary,
+      "success":        $success,
+      "info":           $info,
+      "warning":        $warning,
+      "danger":         $danger,
+      "light":          $light,
+      "dark":           $dark,
+      "white":          $white,
+      "black":          $black,
+);
+
+$gradient: linear-gradient(250deg, $tertiary 0%, $primary 100%);
+    
+
+
+/* ------------------------------------------- Font system ------------------------------------------- */
+
+// Font families
+$font-family-base: "greycliff-cf", sans-serif;
+$font-family-sans-serif: "greycliff-cf", sans-serif;
+
+// Font weights
+$font-weight-light:           400;
+$font-weight-normal:          400;
+$font-weight-medium:          400;
+$font-weight-semibold:        800;
+$font-weight-bold:            800;
+$font-weight-base: $font-weight-normal;
+
+$semi-bold: 800;
+
+// Font sizes
+$h1-font-size:                55px;
+$h2-font-size:                46px;
+$h3-font-size:                34px;
+$h4-font-size:                24px;
+$h5-font-size:                20px;
+$h6-font-size:                16px;
+$small-font-size:             12px;
+
+$h15-font-size:               15px;
+$h14-font-size:               14px;
+$h10-font-size:               10px;
+
+//$font-size-base: $h6-font-size;
+//$font-size-sm: $font-size-base * .875;
+//$font-size-lg: $font-size-base * 1.25;
+
+// Line heights
+$line-height-base:            1.428;
+$line-height-sm:              1;
+$line-height-lg:              2;
+
+// Headings 
+$headings-font-family: $font-family-sans-serif;
+$headings-color: inherit;
+$headings-font-weight: $font-weight-bold;
+$headings-line-height: 1;
+$headings-margin-bottom: 1rem;
+
+// Display 
+$display-font-family: inherit;
+$display-font-weight: inherit;
+
+$display-font-sizes: (
+    1: $h1-font-size,
+    2: $h2-font-size,
+    3: $h3-font-size,
+    4: $h4-font-size,
+    5: $h5-font-size,
+    6: $h6-font-size,
+);
+
+// Lead
+$lead-font-family: $font-family-sans-serif;
+$lead-font-weight: $font-weight-bold;
+
+// Responsive Font Size
+$rfs-factor: 2;
+
+
+/* ------------------------------------------- Layout system ------------------------------------------- */
+
+// Header / navbar heights
+$header-height-xs: 84px;
+$header-height-sm: 84px;
+$header-height-md: 84px;
+$header-height-lg: 84px;
+$header-height-xl: 84px;
+$header-height-xxl: 84px;
+
+// Breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$grid-breakpoints: (
+        xs: $breakpoint-xs,
+        sm: $breakpoint-sm,
+        md: $breakpoint-md,
+        lg: $breakpoint-lg,
+        xl: $breakpoint-xl,
+        xxl: $breakpoint-xxl,
+);
+
+// Containers
+$container-xs: 100%;
+$container-sm: 540px;
+$container-md: 720px;
+$container-lg: 960px;
+$container-xl: 1152px;
+$container-xxl: 1320px;
+
+$container-max-widths: (
+        sm: $container-sm,
+        md: $container-md,
+        lg: $container-lg,
+        xl: $container-xl,
+        xxl: $container-xxl,
+);
+
+
+/* ------------------------------------------- Utilities ------------------------------------------- */
+
+
+// Spacers
+$enable-negative-margins: true;
+
+$spacer:      1rem;
+$spacer-1:    $spacer * .25;
+$spacer-2:    $spacer * .5;
+$spacer-3:    $spacer;
+$spacer-4:    $spacer * 2;
+$spacer-5:    $spacer * 3;
+$spacer-6:    $spacer * 3.5;
+$spacer-60:   60px;
+$spacer-120:   120px;
+
+$spacers: (
+        0: 0,
+        1: $spacer-1,
+        2: $spacer-2,
+        3: $spacer-3,
+        4: $spacer-4,
+        5: $spacer-5,
+        6: $spacer-6,
+        60: $spacer-60,
+        120: $spacer-120,
+);
+
+// Border radius
+$border-radius: 5px; //default
+$border-radius-sm: 3px;
+$border-radius-md: $border-radius;
+$border-radius-lg: 10px;
+$border-radius-xl: 16px;
+$border-radius-2xl: 20px;
+
+$border-radius-sizes: (
+        "sm": $border-radius-sm,
+        "md": $border-radius-md,
+        "lg": $border-radius-lg,
+        "xl": $border-radius-xl,
+        "xxl": $border-radius-2xl,
+);
+
+// Aspect ratios
+$aspect-ratios: (
+        "1x1": 100%,
+        "4x3": calc(3 / 4 * 100%),
+        "16x9": calc(9 / 16 * 100%),
+        "21x9": calc(9 / 21 * 100%),
+);
+
+// Shadows
+$box-shadow: 0px 0px 14px 0px rgba($black, 0.05);
+$box-shadow-sm: $box-shadow;
+$box-shadow-lg: 0px 0px 20px rgba($black, 0.15);
+$box-shadow-inset: inset 0 1px 2px rgba($black, .075);
+
+// Transitions
+$transition-linear: all 0.15s linear;
+$transition-cubic: all 0.25s cubic-bezier(0.86, 0, 0.07, 1);
+$transition-easeinout: all 0.15s ease-in-out;
+
+
+/* ------------------------------------------- Components ------------------------------------------- */
+
+/*
+$accordion-button-active-bg: $blue;
+$accordion-button-active-color: $white;
+$accordion-border-width: 0;
+$accordion-button-focus-box-shadow: none;
+$accordion-inner-border-radius: 0;
+$accordion-button-icon:         url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13.5V7.5M7 7.5V1.5M7 7.5H1M7 7.5H13" stroke="%2322225F" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-button-active-icon:  url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1H7H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-button-icon-white:   url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13.5V7.5M7 7.5V1.5M7 7.5H1M7 7.5H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-button-active-icon-white:  url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1H7H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+*/
+
+// <body> body tag
+$body-bg: $white;
+$body-color: $black;
+$body-font-size: $h14-font-size;
+$body-line-height: 1.4;
+
+// link
+$link-color: $primary;
+$link-hover-color: $secondary;
+
+// .btn {}
+$btn-font-family: $headings-font-family;
+$btn-font-size: $h15-font-size;
+$btn-padding-x: 15px;
+$btn-padding-y: 5.5px;
+$btn-line-height: 1.4;
+$btn-border-radius: 0;
+
+// .btn-sm {}
+$btn-font-size-sm: $small-font-size;
+$btn-padding-x-sm: 11px;
+$btn-padding-y-sm: 1.6px;
+
+// .btn-lg {}
+$btn-font-size-lg: $h5-font-size;
+$btn-padding-x-lg: 19px;
+$btn-padding-y-lg: 7px;
+
+// .navbar-nav {}
+$navbar-padding-y-desktop: 10px;
+$navbar-padding-y-mobile: 30px;
+$navbar-nav-link-padding-x: 0;
+$nav-link-font-size: $h6-font-size;
+
+// .navbar-brand {}
+$navbar-brand-padding-y-desktop: 0;
+$navbar-brand-padding-y-mobile: 0;
+$navbar-brand-height-desktop: 48px;
+$navbar-brand-height-mobile: 38px;
+$navbar-brand-margin-end: 2rem;
+
+// .breadcrumb {}
+$breadcrumb-divider: '>';
+$breadcrumb-item-padding-x: .4rem;
+
+// .accordion {}
+$accordion-body-padding-x: 0;
+$accordion-body-padding-y: 0;
+$accordion-button-active-bg: $blue;
+$accordion-button-active-color: $white;
+$accordion-border-width: 0;
+$accordion-bg: transparent;
+$accordion-button-focus-box-shadow: none;
+$accordion-inner-border-radius: 0;
+$accordion-button-icon-white:   url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13.5V7.5M7 7.5V1.5M7 7.5H1M7 7.5H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-button-active-icon-white:  url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1H7H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+/*$accordion-button-icon:         url('data:image/svg+xml,<svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 13.5V7.5M7 7.5V1.5M7 7.5H1M7 7.5H13" stroke="%2322225F" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-button-active-icon:  url('data:image/svg+xml,<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1H7H13" stroke="white" stroke-width="2" stroke-linecap="square"/></svg>');
+$accordion-body-padding-y: 0;
+$accordion-body-padding-x: 25px;*/
+$accordion-button-padding-x : 25px;
+
+// .table {}
+$table-striped-bg : rgba($dark, .2);
+$table-striped-order: even;
+
+// .badge {}
+$badge-border-radius: 0;
+$badge-font-size: $h6-font-size;
+$badge-font-weight: $font-weight-bold;
+$badge-color: $black;
+$badge-padding-y: .25rem;
+$badge-padding-x: .5rem;

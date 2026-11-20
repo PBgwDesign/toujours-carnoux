@@ -1,0 +1,355 @@
+/* ------------------------------------------- Btn types ------------------------------------------- */
+
+// Default .btn {}
+.btn {
+    font-weight: $font-weight-bold;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    transition-duration: .3s;
+    padding-left: calc(var(--bs-btn-padding-x) + 4px);
+    margin-left: 8px;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 3px;
+        right: 100%;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 7px;
+        height: 3px;
+        right: calc(100% - 6px);
+    }
+    &:not(.btn-circle):not(.btn-square) {
+        i {
+            margin: 0 0 0 .5em;
+        }
+    }
+    &.active, &:active, &:focus {
+    }
+}
+
+@media (hover : hover) {
+    .btn {
+        &:hover {
+            
+        }
+    }
+}
+
+[class*="btn-outline-"] {
+    --bs-btn-border-width: 3px;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 3px;
+        right: 100%;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 3px;
+        right: calc(100% - 4px);
+    }
+}
+
+// Link .btn-link {}
+.btn-link {
+    font-size: $h15-font-size;
+    font-weight: $font-weight-bold;
+    color: $tertiary;
+    position: relative;
+    background: none !important;
+    text-decoration: none;
+    &::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+    }
+    i {
+        margin: 0 0 0 .05em;
+    }
+}
+
+/* ------------------------------------------- Btn sizes ------------------------------------------- */
+
+.btn-sm {
+    --bs-btn-font-size: #{$btn-font-size-sm};
+    --bs-btn-border-radius: 0;
+    --bs-btn-padding-x: #{$btn-padding-x-sm};
+    --bs-btn-padding-y: #{$btn-padding-y-sm};
+    &.btn-icon-arrow::after {
+        background-size: 9px auto;
+        margin-left: 2px;
+    }
+}
+
+.btn-lg {
+    --bs-btn-font-size: #{$btn-font-size-lg};
+    --bs-btn-border-radius: 0;
+    --bs-btn-padding-x: #{$btn-padding-x-lg};
+    --bs-btn-padding-y: #{$btn-padding-y-lg};
+    &.btn-icon-arrow::after {
+        background-size: 15px auto;
+        margin-left: 8px;
+    }
+}
+
+/* ------------------------------------------- Btn shapes ------------------------------------------- */
+
+.btn-square {
+    display: inline-flex !important;
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    padding: initial !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    padding: 0;
+    font-size: $h14-font-size;
+    &[class*="btn-icon"]::after {
+        margin-left: 0;
+    }
+    &.btn-lg {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        font-size: $h6-font-size;
+    }
+    &.btn-sm {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        font-size: $small-font-size;
+    }
+}
+
+.btn-circle {
+    display: inline-flex !important;
+    width: 34px;
+    min-width: 34px;
+    height: 34px;
+    border-radius: 34px !important;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: $h14-font-size;
+    clip-path: none;
+    &[class*="btn-icon"]::after {
+        margin-left: 0;
+    }
+    &.btn-lg {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        border-radius: 44px !important;
+        font-size: $h6-font-size;
+    }
+    &.btn-sm {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        border-radius: 22px !important;
+        font-size: $small-font-size;
+    }
+}
+
+/* ------------------------------------------- Btn colors ------------------------------------------- */
+
+// Theme-colors loop (only for colored button rules purpose)
+@each $color, $value in $theme-colors {
+
+    // Default colored .btn {}
+    .btn-#{$color} {
+        @if $color == 'primary'  {
+            --bs-btn-color: #{$white} !important;
+            --bs-btn-bg: #{$value} !important;
+            --bs-btn-hover-color: #{darken($value, 10%)} !important;
+            --bs-btn-hover-bg: #{darken($value, 10%)} !important;
+            --bs-btn-active-color: #{$black};
+            --bs-btn-active-bg: #{darken($value, 10%)} !important;
+            &::before {
+                background-color: var(--bs-btn-bg);
+            }
+            &::after {
+                background-color: var(--bs-btn-color);
+            }
+            &:hover, &:active, &:focus {
+                color: $white !important;
+                border-color: var(--bs-btn-hover-color);
+            }
+            &.active {
+                color: var(--bs-btn-active-color);
+                background-color: var(--bs-btn-active-bg);
+            }
+            &[class*="btn-icon"]::after {
+                background-color: $white;
+            }
+            &.btn-square, &.btn-circle {
+                .bi {
+                    color: var(--bs-btn-color) !important;
+                }
+            }
+            .bi {
+                color: var(--bs-btn-color);
+            }
+        } @else if $color == 'white' {
+            --bs-btn-color: #{$tertiary} !important;
+            --bs-btn-bg: #{$value} !important;
+            --bs-btn-hover-color: $tertiary !important;
+            --bs-btn-hover-bg: #{darken($value, 10%)} !important;
+            --bs-btn-active-color: #{$tertiary};
+            --bs-btn-active-bg: #{darken($value, 10%)} !important;
+            &::before {
+                background-color: var(--bs-btn-bg);
+            }
+            &::after {
+                background-color: var(--bs-btn-color);
+            }
+            &:hover, &:active, &:focus {
+                color: $tertiary !important;
+                border-color: var(--bs-btn-hover-color);
+            }
+            &.active {
+                color: var(--bs-btn-active-color);
+                background-color: var(--bs-btn-active-bg);
+            }
+            &[class*="btn-icon"]::after {
+                background-color: $tertiary;
+            }
+            &.btn-square, &.btn-circle {
+                .bi {
+                    color: var(--bs-btn-color) !important;
+                }
+            }
+            .bi {
+                color: var(--bs-btn-color);
+            }
+        } @else {
+            --bs-btn-color: #{get-color-yiq($value)} !important;
+            --bs-btn-bg: #{$value} !important;
+            --bs-btn-hover-color: #{darken($value, 10%)} !important;
+            --bs-btn-hover-bg: #{darken($value, 10%)} !important;
+            --bs-btn-active-color: #{$black};
+            --bs-btn-active-bg: #{darken($value, 10%)} !important;
+            &::before {
+                background-color: var(--bs-btn-bg);
+            }
+            &::after {
+                background-color: var(--bs-btn-color);
+            }
+            &:hover, &:active, &:focus {
+                color: get-color-yiq($value) !important;
+                border-color: var(--bs-btn-hover-color);
+            }
+            &.active {
+                color: var(--bs-btn-active-color);
+                background-color: var(--bs-btn-active-bg);
+            }
+            &[class*="btn-icon"]::after {
+                background-color: get-color-yiq($value);
+            }
+            &.btn-square, &.btn-circle {
+                .bi {
+                    color: var(--bs-btn-color) !important;
+                }
+            }
+            .bi {
+                color: var(--bs-btn-color);
+            }
+        }
+    }
+
+    // Outline colored .btn-outline-* {}
+    .btn-outline-#{$color} {
+        --bs-btn-hover-bg: #{$value} !important;
+        --bs-btn-hover-color: #{$white} !important;
+        --bs-btn-hover-bg: #{$value} !important;
+        --bs-btn-hover-border-color: #{$value} !important;
+        --bs-btn-active-color: #{$black};
+        --bs-btn-active-bg: #{$value} !important;
+        background: none !important;
+        &::before, &::after {
+            background-color: var(--bs-btn-hover-bg);
+        }
+        &:hover {
+            background-color: var(--bs-btn-hover-bg) !important;
+            color: get-color-yiq($value) !important;
+            &::after {
+                background-color: var(--bs-btn-hover-color);
+            }
+            &[class*="btn-icon"]::after {
+                background-color: get-color-yiq($value) !important;
+            }
+        }
+        &.active, &:active, &:focus {
+            background-color: var(--bs-btn-hover-bg) !important;
+            color: get-color-yiq($value) !important;
+            &.btn-icon-arrow::after {
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M12,4,10.59,5.41,16.17,11H4v2H16.17l-5.58,5.59L12,20l8-8Z' transform='translate(-4 -4)' fill='#{encodecolor(get-color-yiq($value))}'/%3E%3C/svg%3E%0A") no-repeat center center / 12px auto;
+            }
+        }
+        &[class*="btn-icon"]::after {
+            background-color: $value;
+        }
+        &.btn-square, &.btn-circle {
+            &:hover {
+                i {
+                    color: $primary !important;
+                }
+            }
+        }
+    }
+
+    // Link colored .btn-link-* {}
+    .btn-link.btn-#{$color} {
+        --bs-btn-bg: #{$value};
+        color: var(--bs-btn-bg);
+        &::after {
+            background-color: var(--bs-btn-bg);
+        }
+        .bi {
+            color: var(--bs-btn-bg);
+        }
+        &:hover {
+            color: darken($value, 10%) !important;
+            &::after {
+                background-color: darken($value, 10%) !important;
+            }
+        }
+    }
+}
+
+
+/* ------------------------------------------- Btn icons ------------------------------------------- */
+
+.btn {
+    .bi {
+        &::before {
+            -webkit-text-stroke: 1px;
+        }
+    }
+}
+  
+/* ------------------------------------------- Other btn ------------------------------------------- */
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.btn-search {
+    &:focus, &:active {
+        color: $black !important;
+    }
+}

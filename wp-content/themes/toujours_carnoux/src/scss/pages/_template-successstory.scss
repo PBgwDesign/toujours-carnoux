@@ -1,0 +1,50 @@
+.page-template-template-successstory {
+
+    [class*="sticky-"] {
+        top: calc(var(--header-height) + 2rem);
+    }
+
+    .component-entete {
+        margin: 0 !important;
+    }
+
+    .component-widgetcategorie {
+        margin-top: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .component-widgetnewsletter {
+        margin-top: 1rem !important;
+    }
+
+    .component-listedepublicationpaginee {
+        margin-top: 1.5rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    &[class*="page-paged-"] {
+        .component-listedepublicationpaginee {
+            margin-top: 1.5rem !important;
+        }
+    }
+
+}
+
+@include media-breakpoint-down(md) {
+    .page-template-template-successstory {
+    
+        .component-widgetcategorie {
+            margin-top: -4rem !important;
+            margin-bottom: 2.5rem !important;
+            [class*="bg-"] {
+                padding-top: 2.5rem;
+            }
+        }
+
+        .component-widgetnewsletter {
+            margin-top: 4rem !important;
+            margin-bottom: 0 !important;
+        }
+
+    }
+}

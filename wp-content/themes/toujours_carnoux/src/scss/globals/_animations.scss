@@ -1,0 +1,50 @@
+@keyframes logo-img-reveal {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes logo-baseline-reveal {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes logo-baseline-firstbar-reveal {
+    from {
+        width: 0;
+    }
+    to {
+        width: 10px;
+    }
+}
+
+@keyframes logo-baseline-lastbar-reveal {
+    from {
+        width: 0;
+    }
+    to {
+        width: 18.5px;
+    }
+}
+
+@keyframes menu-reveal {
+    from {
+        opacity: 0;
+        transform: translateX(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

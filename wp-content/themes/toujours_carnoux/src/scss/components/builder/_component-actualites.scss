@@ -1,0 +1,60 @@
+.component-actualites {
+
+    .component-title {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        .title {
+            &::before {
+                content: '';
+                position: relative;
+                display: block;
+                width: 90px;
+                height: 12px;
+                background-color: $tertiary;
+                margin-bottom: 1rem;
+            }
+        }
+        .splide__arrows {
+            align-self: flex-end;
+        }
+    }
+
+}
+
+@include media-breakpoint-up(md) {
+    .component-actualites {
+        &.splide {
+            .splide__track {
+                max-width: none;
+                width: calc( ((100vw - var(--container-width)) / 2) + (var(--container-width) / 12 * 8) - (var(--bs-gutter-x) * .5) );
+                padding-right: calc( (100vw - var(--container-width)) / 2 ) !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-only(sm) {
+    .component-actualites {
+        &.splide {
+            .splide__track {
+                max-width: none;
+                width: calc( ((100vw - var(--container-width)) / 2) + (var(--container-width) / 12 * 12) - (var(--bs-gutter-x) * .5) );
+                padding-right: calc( (100vw - var(--container-width)) / 2 ) !important;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .component-actualites {
+        &.splide {
+            .splide__track {
+                max-width: none;
+                width: calc( ((100vw - var(--container-width)) / 2) + (var(--container-width) / 12 * 12) );
+            }
+        }
+    }
+}

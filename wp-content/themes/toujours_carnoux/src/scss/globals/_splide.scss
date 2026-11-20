@@ -1,0 +1,106 @@
+.splide {
+
+    &:not(.splide-arrows ){
+        .splide__arrows {
+            display: none;
+        }
+    }
+
+    .splide__container {
+        position: relative;
+    }
+    
+    .splide__arrows {
+
+        .splide__arrow {
+            position: relative;
+            z-index: 1;
+            border: none;
+            font-size: 28px;
+            @extend .btn;
+            @extend .btn-square;
+            transition: $transition-easeinout;
+            &[disabled] {
+                opacity: .3;
+            }
+        }
+
+    }
+
+    .splide__arrow--prev {
+        left: 0;
+        &::before {
+            content: none !important;
+        }
+        &::after {
+            content: none !important;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6.828' height='10.828' viewBox='0 0 6.828 10.828'%3E%3Cpath id='Tracé_25434' data-name='Tracé 25434' d='M9723.876,12163.9l-4,4,4,4' transform='translate(-9718.462 -12162.489)' fill='none' stroke='%23161615' stroke-linecap='square' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center center / 7px auto;
+        }
+    }
+
+    .splide__arrow--next {
+        right: 0;
+        &::before {
+            content: none !important;
+        }
+        &::after {
+            content: none !important;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6.828' height='10.828' viewBox='0 0 6.828 10.828'%3E%3Cpath id='Tracé_25435' data-name='Tracé 25435' d='M9731.7,12163.9l4,4-4,4' transform='translate(-9730.281 -12162.489)' fill='none' stroke='%23161615' stroke-linecap='square' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center center / 7px auto;
+        }
+    }
+
+    .splide__pagination {
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+        li {
+            button {
+                appearance: none;
+                width: 10px;
+                min-width: 10px;
+                max-width: 10px;
+                height: 10px;
+                border-radius: 10px;
+                background-color: $white_snow;
+                border: 0;
+                margin: 0 2px;
+                padding: 0;
+                &.is-active {
+                    background: $primary
+                }
+            }
+        }
+    }
+
+    .splide__slide-index {
+        font-size: $h14-font-size;
+        font-weight: $font-weight-bold;
+        color: $black;
+        letter-spacing: 1px;
+        top: 2px;
+        position: relative;
+    }
+
+    &.bg-black {
+        .splide__slide-index {
+            color: $white;
+        }
+        .splide__arrows {
+            .splide__arrow {
+                border-color: $white;
+                &::before, &::after {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+
+}

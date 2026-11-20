@@ -1,0 +1,48 @@
+#vertical_pager {
+    position: fixed;
+    top: calc(50vh - 150px / 2);
+    right: -30px;
+    padding: 10px 10px;
+    background: rgba($white, .65);
+    backdrop-filter: blur(10px);
+    z-index: 9;
+    transition: $transition-easeinout;
+
+    &.scrolled-up {
+        right: 0;
+    }
+
+    #vertical-menu {
+        padding: 0;
+        margin: 0;
+        .nav-item {
+            list-style: none;
+            padding: 5px 0;
+            .nav-link {
+                display: block;
+                width: 10px;
+                height: 10px;
+                padding: 0;
+                border-radius: 50%;
+                background-color: $secondary;
+                span {
+                    white-space: nowrap;
+                    position: absolute;
+                    right: 30px;
+                    text-align: right;
+                    color: $white;
+                    background-color: $primary;
+                    padding: 5px 10px;
+                    transform: translateY(-16px);
+                    opacity: 0;
+                }
+                &.active {
+                        background-color: $primary;
+                    span {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

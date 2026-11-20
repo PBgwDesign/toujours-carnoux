@@ -1,0 +1,94 @@
+.card-agenda {
+
+    .card-body {
+        padding: 1.5rem;
+        background-color: $white;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: relative;
+        float: left;
+        height: 100%;
+        width: 100%;
+
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%;
+            float: left;
+        }
+
+        .meta-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-right: 1rem;
+            .date {
+                position: relative;
+                span {
+                    font-size: $h14-font-size;
+                    &:first-child {
+                        font-weight: $font-weight-bold;
+                        color: $primary;
+                    }
+                }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 24px;
+                    height: 8px;
+                    background-color: $primary;
+                    top: calc(100% + 1em);
+                    left: 0;
+                }
+            }
+            .hour {
+                font-size: $h14-font-size;
+                font-weight: $font-weight-bold;
+                color: $primary;
+            }
+        }
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            .title {
+                font-size: $h4-font-size;
+                color: $primary;
+            }
+        }
+
+    }
+
+    &.active {
+        .card-body {
+            background-color: $primary;
+            .meta-container {
+                .date {
+                    span {
+                        color: $white;
+                    }
+                    &::after {
+                        background-color: darken($primary, 10%);
+                    }
+                }
+                .hour {
+                    color: $white;
+                }
+            }
+            .text-container {
+                .title {
+                    color: $white;
+                }
+                .text {
+                    color: $white;
+                }
+            }
+        }
+    }
+
+}

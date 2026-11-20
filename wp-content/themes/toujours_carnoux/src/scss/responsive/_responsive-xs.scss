@@ -1,0 +1,21 @@
+@include media-breakpoint-only(xs) {
+
+    :root {
+        --container-width: #{$container-xs};
+        --header-height: #{$header-height-xs};
+        --bs-gutter-x: 32px;
+    }
+
+}
+
+@media (min-width: 360px) and (max-width: 459.98px)  {
+    
+
+
+}
+
+@media (max-width: 359.98px)  {
+    
+    
+
+}

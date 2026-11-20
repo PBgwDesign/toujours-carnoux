@@ -1,0 +1,67 @@
+[class*="watermark-"] {
+    position: relative;
+    z-index: 0;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        background-color: $black;
+    }
+    &[class*="bg-"] {
+        &::before {
+            top: $spacer-60;
+            height: calc(100% - $spacer-60 * 2);
+        }
+    }
+    &:not([class*="bg-"]) {
+        &::before {
+            top: calc($spacer-60 * -1);
+            height: calc(100% + $spacer-60 * 2);
+        }
+    }
+    &[class*="africa"] {
+        &::before {
+            mask: url('../img/festivalf5c_watermark_africa.svg') no-repeat center center / 365px auto;
+        }
+    }
+    &[class*="america"] {
+        &::before {
+            mask: url('../img/festivalf5c_watermark_america.svg') no-repeat center center / 500px auto;
+        }
+    }
+    &[class*="asia"] {
+        &::before {
+            mask: url('../img/festivalf5c_watermark_asia.svg') no-repeat center center / 375px auto;
+        }
+    }
+    &[class*="europa"] {
+        &::before {
+            mask: url('../img/festivalf5c_watermark_europa.svg') no-repeat center center / 500px auto;
+        }
+    }
+    &[class*="oceania"] {
+        &::before {
+            mask: url('../img/festivalf5c_watermark_oceania.svg') no-repeat center center / 400px auto;
+        }
+    }
+    &.no-bg {
+        &::before {
+            background-color: $primary;
+            opacity: .1;
+        }
+    }
+    &.bg-light {
+        &::before {
+            background-color: $secondary;
+            opacity: .035;
+        }
+    }
+    &.bg-black {
+        &::before {
+            background-color: $tertiary;
+            opacity: .05;
+        }
+    }
+}

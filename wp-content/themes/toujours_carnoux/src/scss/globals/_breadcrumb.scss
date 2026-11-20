@@ -1,0 +1,43 @@
+.breadcrumb {
+    z-index: 1;
+    position: relative;
+    margin-bottom: 0;
+    .bi {
+        font-size: 11px;
+        margin: 0 .4rem;
+    }
+    .breadcrumb-item {
+        color: $dark;
+        font-size: $small-font-size;
+        letter-spacing: .25px;
+        a {
+            color: $dark;
+            font-size: $small-font-size;
+            text-decoration: none;
+            transition: $transition-easeinout;
+        }
+        &.active {
+            color: $black;
+        }
+        &:last-child, &:last-child > * {
+            color: $black;
+            text-stroke: .5px currentColor;
+            -webkit-text-stroke: .5px currentColor;
+        }
+        & + .breadcrumb-item {
+            &::before {
+                content: '';
+                display: inline-block;
+                float: none;
+                top: 1px;
+                position: relative;
+                padding: 0;
+                margin-right: .2rem;
+                width: 10px;
+                height: 10px;
+                background-color: $dark;
+                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5' height='7' viewBox='0 0 5 7'%3E%3Cpath id='Tracé_212' data-name='Tracé 212' d='M9683.644,12321.516l3.091,2.678-3.091,2.678.951.822,4.049-3.5-4.049-3.5Z' transform='translate(-9683.644 -12320.693)' fill='%23181817'/%3E%3C/svg%3E%0A") no-repeat center center / 5px auto;
+            }
+        }
+    }
+}

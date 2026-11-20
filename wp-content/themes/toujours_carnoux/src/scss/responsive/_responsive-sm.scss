@@ -1,0 +1,21 @@
+@include media-breakpoint-only(sm) {
+
+  :root {
+    --container-width: #{$container-sm};
+    --header-height: #{$header-height-sm};
+    --bs-gutter-x: 32px;
+  }
+
+}
+
+@include media-breakpoint-up(sm) {
+
+    
+
+}
+
+@include media-breakpoint-down(sm) {
+
+
+
+}

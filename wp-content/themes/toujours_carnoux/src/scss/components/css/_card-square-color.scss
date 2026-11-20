@@ -1,0 +1,67 @@
+.card-square-color {
+    width: 190px;
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        aspect-ratio: 1/1;
+
+        &.bg-white {
+            .text-container {
+                color: $tertiary;
+            }
+        }
+        &.bg-tertiary {
+            .text-container {
+                color: $white;
+            }
+        }
+        &.bg-primary {
+            .text-container {
+                color: $white;
+            }
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: end;
+            position: relative;
+            .text {
+                color: currentColor;
+            }
+            .text-big {
+                font-weight: $font-weight-bold;
+            }
+        }
+
+    }
+
+}
+
+@include media-breakpoint-up(xl) {
+    .card-square-color {
+        width: 190px;
+        .text-container {
+            bottom: 1.5rem;
+            .text-big {
+                font-size: $h3-font-size;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(xl) {
+    .card-square-color {
+        width: 150px;
+        .text-container {
+            bottom: 1rem;
+            .text-big {
+                font-size: $h4-font-size;
+            }
+        }
+    }
+}
